@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Latest News</h1>
+    </header>
+    <main>
+        <div class="news-container">
+            {% for news_item in news %}
+            <div class="news-item">
+                <img src="{{ news_item.image }}" alt="News Image" class="news-image">
+                <h2><a href="/article/{{ loop.index0 }}">{{ news_item.title }}</a></h2>
+                <p>{{ news_item.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="?page={{ page - 1 }}" class="pagination-link">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ total_pages }}</span>
+            {% if page < total_pages %}
+            <a href="?page={{ page + 1 }}" class="pagination-link">Next</a>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
+

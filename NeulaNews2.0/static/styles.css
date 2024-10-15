@@ -1,0 +1,195 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; /* Very light background for a fresh look */
+}
+
+/* Header Styles */
+header {
+    background-color: #34495e; /* Darker navy background */
+    color: #ffffff; /* White text */
+    padding: 20px; /* Added padding for a spacious feel */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    position: relative; /* To allow for potential positioning adjustments */
+}
+
+/* Main Container Styles */
+main {
+    padding: 20px;
+}
+
+/* News Feed Container */
+.news-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space between news boxes */
+    gap: 20px; /* Space between news boxes */
+}
+
+/* Styles for Individual News Boxes */
+.news-box {
+    background-color: #ffffff; /* White background for news box */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden; /* Ensures rounded corners for images */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    flex: 1 1 calc(33.33% - 20px); /* 3 boxes in a row with margin */
+    max-width: calc(33.33% - 20px); /* Ensures no overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+/* News Box Hover Effect */
+.news-box:hover {
+    transform: translateY(-5px); /* Slightly raise on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Styles for Images */
+.news-image {
+    width: 80%; /* Make the image take the full width of the box */
+    height: 80%; /* Maintain aspect ratio */
+    max-height: 500px; /* Set a maximum height for the images */
+    object-fit: fill; /* Cover the box without distortion */
+    border: 3px solid #2980b9; /* Accent border at the bottom */
+    box-sizing: border-box;
+    border-radius: 15%;
+}
+
+/* Styles for Title and Description */
+.news-title {
+    font-size: 1.6em; /* Larger font for titles */
+    padding: 15px; /* Increased padding for titles */
+    font-weight: 700; /* Bold title */
+    color: #2c3e50; /* Dark navy color for better contrast */
+}
+
+.news-description {
+    padding: 0 15px 15px; /* Added bottom padding */
+    font-size: 1em; /* Font size for description */
+    color: #7f8c8d; /* Softer gray color for text */
+}
+
+/* Button Styles */
+.back-button {
+    margin: 10px; /* Margin for back button */
+    padding: 10px 20px; /* Padding for button */
+    background-color: #3498db; /* Bright blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+    font-size: 1em; /* Increased font size */
+    font-weight: 600; /* Semi-bold text */
+}
+
+.back-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #3498db; /* Bright blue color */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s; /* Transition for color change */
+}
+
+.pagination a:hover {
+    color: #2980b9; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .news-box {
+        flex: 1 1 calc(50% - 20px); /* 2 boxes in a row for tablets */
+        max-width: calc(50% - 20px); /* Ensure no overflow */
+    }
+}
+
+@media (max-width: 480px) {
+    .news-box {
+        flex: 1 1 100%; /* 1 box in a row for mobile */
+        max-width: 100%; /* Ensure full width */
+    }
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #34495e; /* Darker navy background */
+    color: #ffffff; /* White text */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1); /* Soft shadow at the top */
+}
+
+/* Loading Spinner */
+.loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Styles for Article Image */
+.article-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Responsive Typography */
+h2 {
+    font-size: 1.8em; /* Larger font size for headings */
+    color: #2c3e50; /* Dark navy color */
+    margin: 10px 0;
+}
+
+/* Additional Styles */
+h2 a {
+    color: #2980b9; /* Bright blue color */
+    text-decoration: none;
+}
+
+h2 a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* New "Continue Reading" Link */
+.continue-reading {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 10px 20px;
+    background-color: #3498db; /* Bright blue background */
+    color: white; /* White text */
+    border-radius: 25px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    font-weight: 600; /* Semi-bold text */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+}
+
+.continue-reading:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+

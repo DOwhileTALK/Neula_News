@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>{{ article.title }}</h1>
+    </header>
+    <main>
+        <img src="{{ article.image }}" alt="Article Image" class="news-image">
+        
+        
+        
+        <h2>Summary:</h2>
+        <p id="summary"></p>
+<p>{{ article.description }}</p> <br><br>
+         <a href="{{ article.link }}" class="back-button" target="_blank">Continue Reading</a> <br><br>
+          <button onclick="window.location.href='/'" class="back-button">Back to Home</button>
+    
+    </main>
+    
+    <script>
+        $('#summarize').click(function() {
+            const description = "{{ article.description|tojson|safe }}";
+            $('.loading').show();
+
+            $.ajax({
+                url: '/generate_summary',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ description: description }),
+                success: function(response) {
+                    $('#summary').text(response.summary);
+                },
+                complete: function() {
+                    $('.loading').hide();
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
